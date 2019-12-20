@@ -1,0 +1,14 @@
+make controller 
+php artisan make:controller LevelsController --resource
+
+make controller with model
+- php artisan make:controller ControllerNames -r -m ModelName
+
+make migration to create table in database
+- php artisan make:migration create_TABLENAME_table 
+
+run with migrate after create migration to create table in database
+- php artisan migrate
+
+rolback migration
+- php artisan migrate::rolback
