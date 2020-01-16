@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-group">
                   <label class="control-label">Tanggal Lahir</label>
-                  <input class="form-control @error('tgl_lahir') is-invalid @enderror" type="date" name="tgl_lahir" value="{{ student('tgl_lahir') }}" placeholder="Masukan Tanggal Lahir">
+                  <input class="form-control @error('tgl_lahir') is-invalid @enderror" type="date" name="tgl_lahir" value="{{ $student->tgl_lahir }}" placeholder="Masukan Tanggal Lahir">
                   @error('tgl_lahir')
                   <div class="form-control-feedback">{{ $message }}</div>
                   @enderror

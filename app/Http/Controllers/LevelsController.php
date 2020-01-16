@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Level;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LevelsController extends Controller
 {
@@ -20,7 +21,7 @@ class LevelsController extends Controller
 
     public function store(Request $request)
     {
-        $request->validation([
+        $request->validate([
             'level' => 'required'
         ]);
         Level::create($request->all());
@@ -39,7 +40,7 @@ class LevelsController extends Controller
 
     public function update(Request $request, Level $level)
     {
-        $request->validation([
+        $request->validate([
             'level' => 'required'
         ]);
         Level::where('id', $level->id)

@@ -7,79 +7,53 @@ use Illuminate\Http\Request;
 
 class PartsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $fatroh = Part::all();
+        return view('parts.index', ['parts' => $fatroh]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('parts.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fatroh' => 'required'
+        ]);
+        Part::create($request->all());
+        return redirect('/parts')->with('status', 'Data berhasil di simpan...!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Part  $part
-     * @return \Illuminate\Http\Response
-     */
     public function show(Part $part)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Part  $part
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Part $part)
     {
-        //
+        return view('parts.edit', compact('part'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Part  $part
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Part $part)
     {
-        //
+        $request->validate([
+            'fatroh' => 'required'
+        ]);
+
+        $part::where('id', $part->id)
+                ->update([
+                    'fatroh' => $request->fatroh
+                ]);
+        return redirect('/parts')->with('status', 'Data berhasil di rubah...!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Part  $part
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Part $part)
     {
-        //
+        Part::destroy($part->id);
+        return redirect('/parts')->with('status', 'Data berhasil di hapus...!');
     }
 }

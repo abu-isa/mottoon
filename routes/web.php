@@ -12,4 +12,7 @@ Route::resource('teachers', 'TeachersController');
 Route::resource('levels', 'LevelsController');
 Route::resource('parts', 'PartsController');
 Route::resource('books', 'BooksController');
-Route::resource('seccions', 'SeccionsController');
+Route::resource('sections', 'SectionsController');
+Route::resource('groups', 'GroupsController');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

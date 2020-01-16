@@ -30,7 +30,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-              <form method="POST" action="/parts/{{ $part->part_id }}">
+              <form method="POST" action="/parts/{{ $part->id }}">
               @method('patch')
               @csrf
                 <div class="form-group">

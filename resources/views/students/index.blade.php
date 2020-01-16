@@ -20,6 +20,14 @@
           <div class="tile">
             <div class="tile-body">
             <a href="/students/create"><button class="btn btn-primary btn-sm">Add Data</button></a>  
+            <!-- <div class="form-group">
+                <label for="">File (.xls, .xlsx)</label>
+                <input type="file" class="form-control" name="file">
+                <p class="text-danger">{{ $errors->first('file') }}</p>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-sm">Upload</button>
+            </div> -->
             <br/><br/>
               <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>

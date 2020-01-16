@@ -1,13 +1,13 @@
 @extends('layout/main')
 
-@section('title', '.:MOTTOON - EDIT DATA KITAB:.')
+@section('title', '.:MOTTOON - EDIT DATA KELOMPOK:.')
 @section('container')
 
 <main class="app-content">
 <div class="app-title">
         <div>
           <h1><i class="fa fa-laptop"></i> Edit Data</h1>
-          <p>Edit Data Kitab</p>
+          <p>Edit Data Kelompok</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -29,37 +29,20 @@
                 <div class="alert alert-success">
                     {{ session('status') }}
                 </div>
-              @endif
-              <form method="POST" action="/books/{{ $book->id }}">
+            @endif
+              <form method="POST" action="/groups/{{ $group->id }}">
               @method('patch')
               @csrf
-              
                 <div class="form-group">
-                    <label for="exampleSelect1">Mustawa</label>
-                    <select class="form-control" id="exampleSelect1" name="level_id">
-                      @foreach( $level as $row)
-                      <option value="{{ $row->id }}" {{ $row->id == $book->level_id ? 'selected' : '' }}> {{ $row->level }}</option>
-                      @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                  <label class="control-label">Book</label>
-                  <input class="form-control @error('kitab') is-invalid @enderror" type="text" name="kitab" value="{{ $book->kitab }}">
-                  @error('kitab')
-                  <div class="form-control-feedback">{{ $message }}</div>
-                  @enderror
-                </div>
-                
-                <div class="form-group">
-                  <label class="control-label">Pengarang</label>
-                  <input class="form-control @error('pengarang') is-invalid @enderror" type="text" name="pengarang" value="{{ $book->pengarang }}">
-                  @error('pengarang')
+                  <label class="control-label">group</label>
+                  <input class="form-control @error('group') is-invalid @enderror" type="text" name="kelompok" value="{{ $group->kelompok }}">
+                  @error('group')
                   <div class="form-control-feedback">{{ $message }}</div>
                   @enderror
                 </div>
                 <div class="tile-footer">
                 <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Submit</button>&nbsp;&nbsp;&nbsp;
-                <a class="btn btn-secondary" href="/books"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
+                <a class="btn btn-secondary" href="/groups"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
                 </div>
               </form>
             </div>
