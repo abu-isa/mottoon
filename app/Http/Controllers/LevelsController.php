@@ -30,7 +30,7 @@ class LevelsController extends Controller
 
     public function show(Level $level)
     {
-        return view('levels.detail', compact('level'));
+    return view('levels.detail', compact('level'));
     }
 
     public function edit(Level $level)
